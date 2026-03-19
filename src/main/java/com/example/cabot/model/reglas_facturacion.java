@@ -10,7 +10,7 @@ public class reglas_facturacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(length = 3)
+    @Column(length = 20)
     String prefijo;
     String marca;
     @Column(columnDefinition = "TEXT")

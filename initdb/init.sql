@@ -6,12 +6,23 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS reglas_facturacion (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    prefijo VARCHAR(3) NOT NULL,
+    prefijo VARCHAR(20) NOT NULL,
     marca VARCHAR(255) DEFAULT NULL,
     descripcion TEXT,
     descuento_esperado DECIMAL(5,2) NOT NULL,
     INDEX (prefijo),
     INDEX (marca)
+);
+
+CREATE TABLE sugerencias_reglas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo_detectado VARCHAR(20),
+    marca_detectada VARCHAR(255),
+    descuento_encontrado DECIMAL(5,2),
+    fecha_deteccion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    vecesRepetido INT DEFAULT 1,
+    nombreFactura VARCHAR(255),
+    INDEX (codigo_detectado)
 );
 
 INSERT INTO reglas_facturacion (prefijo, marca, descuento_esperado) VALUES ('lbx', 'alb', 45);
@@ -63,3 +74,5 @@ INSERT INTO reglas_facturacion (prefijo, marca, descuento_esperado) VALUES ('gir
 INSERT INTO reglas_facturacion (prefijo, marca, descuento_esperado) VALUES ('mux', 'ferro-plast', 38);
 INSERT INTO reglas_facturacion (prefijo, marca, descuento_esperado)
 VALUES ('DEF', 'GENERAL', 0.0);
+INSERT INTO reglas_facturacion (prefijo, marca, descuento_esperado)
+VALUES ('JAX148650', 'ARMAFLEX', 48.00);

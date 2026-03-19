@@ -17,7 +17,6 @@ public class upload_file_controller {
     private pdf_service pdfService;
 
     @PostMapping
-    // Cambiamos ResponseEntity<String> a ResponseEntity<Object> para poder devolver el JSON o Errores
     public ResponseEntity<Object> upload_file(@RequestParam(value = "file", required = false) MultipartFile file) {
 
         if (file == null || file.isEmpty()) {
